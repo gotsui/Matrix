@@ -1,6 +1,13 @@
 services:
   rust:
-    image: rust:latest
+    build:
+      dockerfile: Dockerfile
+      args:
+        UID: 1000
+        GID: 1000
+        USERNAME: app
+        GROUPNAME: app
     volumes:
       - .:/projects
+    # working_dir: /projects
     working_dir: /projects/matrix/src
